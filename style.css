@@ -1,0 +1,507 @@
+/* =========================================
+   TIPOGRAFÍA Y RESETEO BÁSICO
+   ========================================= */
+   @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap');
+
+   * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+   }
+   
+   html {
+     scroll-behavior: smooth;
+   }
+   
+   body {
+     font-family: 'Montserrat', sans-serif;
+     background-color: #f8f8f8;
+     color: #333;
+   }
+   
+   /* Colores base (puedes ajustarlos a tu gusto) */
+   :root {
+     --color-primario: #E0144C;  /* Color principal (rojo/rosa) */
+     --color-secundario: #111;   /* Color secundario (muy oscuro) */
+     --color-blanco: #fff;
+     --color-gris: #666;
+     --color-fondo: #f8f8f8;
+   }
+   
+   /* =========================================
+      HEADER / MENÚ
+      ========================================= */
+   .header {
+     background-color: var(--color-blanco);
+     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+     position: sticky;
+     top: 0;
+     z-index: 999;
+   }
+   
+   .nav-container {
+     max-width: 1200px;
+     margin: 0 auto;
+     padding: 0.8rem 1rem;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+   }
+   
+   .logo {
+     display: flex;
+     align-items: center;
+   }
+   
+   .logo-img {
+     width: 60px;
+     height: auto;
+     border-radius: 8px;
+   }
+   
+   .logo-text {
+     margin-left: 0.5rem;
+     font-size: 1.4rem;
+     font-weight: 900;
+     color: var(--color-primario);
+   }
+   
+   /* Menú hamburguesa (icono) */
+   .menu-toggle {
+     display: none; /* oculto por defecto en desktop */
+     cursor: pointer;
+   }
+   
+   .menu-toggle i {
+     font-size: 1.5rem;
+     color: var(--color-secundario);
+   }
+   
+   .nav-links {
+     list-style: none;
+     display: flex; /* visible en desktop */
+   }
+   
+   .nav-links li {
+     margin-left: 1.5rem;
+   }
+   
+   .nav-links a {
+     text-decoration: none;
+     color: #333;
+     font-weight: 600;
+     transition: color 0.3s ease;
+   }
+   
+   .nav-links a:hover {
+     color: var(--color-primario);
+   }
+   
+   /* Cuando se active el menú en móvil, cambiamos la disposición */
+   .nav-links.active {
+     position: absolute;
+     top: 65px;           /* Debajo del header */
+     left: 0;
+     right: 0;
+     background: var(--color-blanco);
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     border-top: 2px solid var(--color-primario);
+     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+   }
+   
+   .nav-links.active li {
+     margin: 1rem 0;
+   }
+   
+   /* =========================================
+      SECCIÓN HERO
+      ========================================= */
+   .hero-section {
+     display: flex;
+     flex-wrap: wrap;
+     align-items: center;
+     max-width: 1200px;
+     margin: 0 auto;
+     padding: 2rem 1rem;
+   }
+   
+   .hero-text {
+     flex: 1 1 400px;
+     margin-right: 1rem;
+   }
+   
+   .hero-text h1 {
+     font-size: 2.2rem;
+     color: var(--color-secundario);
+     margin-bottom: 1rem;
+   }
+   
+   .hero-text p {
+     font-size: 1rem;
+     color: #555;
+     margin-bottom: 1.5rem;
+     line-height: 1.5;
+   }
+   
+   .btn-primary {
+     display: inline-block;
+     background-color: var(--color-primario);
+     color: var(--color-blanco);
+     padding: 0.8rem 1.5rem;
+     border-radius: 30px;
+     font-weight: 700;
+     text-decoration: none;
+     transition: background-color 0.3s ease;
+   }
+   
+   .btn-primary:hover {
+     background-color: #c31340;
+   }
+   
+   .hero-image {
+     flex: 1 1 400px;
+     text-align: center;
+     margin-top: 1rem;
+   }
+   
+   .hero-image img {
+     max-width: 100%;
+     height: auto;
+     border-radius: 8px;
+     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+   }
+   
+   /* =========================================
+      SECCIÓN SOBRE NOSOTROS
+      ========================================= */
+   .about-section {
+     max-width: 1000px;
+     margin: 2rem auto;
+     padding: 2rem 1rem;
+     text-align: center;
+   }
+   
+   .about-content h2 {
+     font-size: 1.8rem;
+     color: var(--color-secundario);
+     margin-bottom: 1rem;
+     text-transform: uppercase;
+   }
+   
+   .about-content h2 span {
+     color: var(--color-primario);
+   }
+   
+   .about-content p {
+     font-size: 1rem;
+     color: #555;
+     line-height: 1.6;
+   }
+   
+   /* =========================================
+      SECCIÓN SERVICIOS
+      ========================================= */
+   .services-section {
+     max-width: 1200px;
+     margin: 2rem auto;
+     padding: 2rem 1rem;
+     text-align: center;
+   }
+   
+   .section-title h2 {
+     font-size: 1.8rem;
+     color: var(--color-secundario);
+     text-transform: uppercase;
+     margin-bottom: 0.5rem;
+   }
+   
+   .section-title p {
+     font-size: 1rem;
+     color: #555;
+     margin-bottom: 2rem;
+   }
+   
+   .services-grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+     gap: 2rem;
+   }
+   
+   .service-card {
+     background-color: var(--color-blanco);
+     border-radius: 8px;
+     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+     padding: 2rem 1.5rem;
+     transition: transform 0.3s ease, box-shadow 0.3s ease;
+     text-align: left;
+   }
+   
+   .service-card:hover {
+     transform: translateY(-5px);
+     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+   }
+   
+   .service-icon {
+     font-size: 2rem;
+     color: var(--color-primario);
+     margin-bottom: 1rem;
+   }
+   
+   .service-card h3 {
+     font-size: 1.2rem;
+     color: var(--color-secundario);
+     margin-bottom: 0.5rem;
+     text-transform: uppercase;
+   }
+   
+   .service-card p {
+     font-size: 0.95rem;
+     color: #555;
+     line-height: 1.5;
+   }
+   
+   .service-card ul {
+     margin: 0.5rem 0 0 1rem;
+     list-style-type: disc;
+   }
+   
+   /* =========================================
+      SECCIÓN EJEMPLOS (PORTFOLIO)
+      ========================================= */
+   .portfolio-section {
+     max-width: 1200px;
+     margin: 2rem auto;
+     padding: 2rem 1rem;
+     text-align: center;
+   }
+   
+   .portfolio-grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+     gap: 2rem;
+     margin-top: 2rem;
+   }
+   
+   .portfolio-card {
+     background-color: var(--color-blanco);
+     border-radius: 8px;
+     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+     padding-bottom: 1rem;
+     transition: transform 0.3s ease, box-shadow 0.3s ease;
+     text-align: left;
+     overflow: hidden;
+   }
+   
+   .portfolio-card:hover {
+     transform: translateY(-5px);
+     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+   }
+   
+   .portfolio-card img {
+     width: 100%;
+     height: auto;
+     object-fit: cover;
+     display: block;
+   }
+   
+   .portfolio-card h3 {
+     font-size: 1.1rem;
+     margin: 1rem 1rem 0.5rem 1rem;
+     color: var(--color-secundario);
+     text-transform: uppercase;
+   }
+   
+   .portfolio-card p {
+     color: #555;
+     font-size: 0.95rem;
+     margin: 0 1rem 1rem 1rem;
+     line-height: 1.4;
+   }
+   
+   /* =========================================
+      SECCIÓN CONTACTO
+      ========================================= */
+   .contact-section {
+     max-width: 1200px;
+     margin: 2rem auto;
+     padding: 2rem 1rem;
+     text-align: center;
+     background-color: #fff;
+     border-top: 2px solid var(--color-primario);
+     border-bottom: 2px solid var(--color-primario);
+   }
+   
+   .contact-content {
+     max-width: 800px;
+     margin: 0 auto;
+   }
+   
+   .contact-content h2 {
+     font-size: 1.8rem;
+     color: var(--color-secundario);
+     margin-bottom: 1rem;
+     text-transform: uppercase;
+   }
+   
+   .contact-content p {
+     color: #555;
+     font-size: 1rem;
+     line-height: 1.6;
+     margin-bottom: 2rem;
+   }
+   
+   .contact-options {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     gap: 2rem;
+   }
+   
+   .contact-box {
+     background-color: var(--color-fondo);
+     flex: 1 1 300px;
+     max-width: 350px;
+     border-radius: 8px;
+     padding: 1.5rem;
+     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+     text-align: left;
+   }
+   
+   .contact-icon {
+     font-size: 2rem;
+     color: var(--color-primario);
+     margin-bottom: 1rem;
+   }
+   
+   .contact-box h3 {
+     font-size: 1.2rem;
+     color: var(--color-secundario);
+     margin-bottom: 0.5rem;
+     text-transform: uppercase;
+   }
+   
+   .contact-box p {
+     font-size: 0.95rem;
+     color: #555;
+     line-height: 1.5;
+     margin-bottom: 1rem;
+   }
+   
+   .btn-whatsapp {
+     display: inline-flex;
+     align-items: center;
+     background-color: #25D366;
+     color: var(--color-blanco);
+     font-size: 1rem;
+     font-weight: 700;
+     padding: 0.6rem 1.2rem;
+     border-radius: 30px;
+     text-decoration: none;
+     transition: background 0.3s ease;
+   }
+   
+   .btn-whatsapp:hover {
+     background-color: #20b558;
+   }
+   
+   .btn-whatsapp i {
+     margin-right: 8px;
+     font-size: 1.3rem;
+   }
+   
+   .email-link {
+     color: var(--color-primario);
+     text-decoration: none;
+     font-weight: 600;
+   }
+   
+   /* =========================================
+      FOOTER
+      ========================================= */
+   .footer {
+     background-color: var(--color-secundario);
+     color: var(--color-blanco);
+     text-align: center;
+     padding: 2rem 1rem;
+     margin-top: 2rem;
+   }
+   
+   .footer-top {
+     margin-bottom: 1rem;
+   }
+   
+   .scroll-up {
+     color: var(--color-blanco);
+     font-size: 1.2rem;
+     text-decoration: none;
+     border: 2px solid var(--color-blanco);
+     padding: 0.4rem 0.6rem;
+     border-radius: 50%;
+     transition: background-color 0.3s ease;
+   }
+   
+   .scroll-up:hover {
+     background-color: var(--color-blanco);
+     color: var(--color-secundario);
+   }
+   
+   .footer-bottom p {
+     margin: 0.5rem 0;
+     font-size: 0.9rem;
+   }
+   
+   .social-icons {
+     margin-top: 1rem;
+   }
+   
+   .social-icons a {
+     color: var(--color-blanco);
+     font-size: 1.4rem;
+     margin: 0 0.5rem;
+     transition: color 0.3s ease;
+   }
+   
+   .social-icons a:hover {
+     color: var(--color-primario);
+   }
+   
+   /* =========================================
+      MEDIA QUERIES
+      ========================================= */
+   /* Pantallas hasta 768px: activamos menú hamburguesa y ajustamos */
+   @media (max-width: 768px) {
+     .menu-toggle {
+       display: block; /* visible en móvil */
+     }
+   
+     .nav-links {
+       display: none; /* por defecto, oculto */
+     }
+   
+     .nav-links.active {
+       display: flex; /* se muestra al hacer click */
+     }
+   
+     .hero-section {
+       flex-direction: column;
+     }
+     .hero-text {
+       margin-right: 0;
+       text-align: center;
+     }
+     .hero-image {
+       margin-top: 2rem;
+     }
+   
+     .services-grid, .portfolio-grid {
+       grid-template-columns: 1fr;
+     }
+   
+     .contact-options {
+       flex-direction: column;
+       align-items: center;
+     }
+   }
+   
